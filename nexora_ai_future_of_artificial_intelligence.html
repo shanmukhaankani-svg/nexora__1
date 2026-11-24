@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA AI | Intelligence Beyond Imagination</title>
+    <!-- Futuristic & Clean Typography: Space Grotesk, Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- =====================================================================
+         CSS3 STYLESHEET (Can be moved directly into a separate 'style.css')
+         ===================================================================== -->
+    <style>
+        /* -------------------------------------------------------------------
+           1. CSS VARIABLES & RESET
+           ------------------------------------------------------------------- */
+        :root {
+            --bg-primary: #080B16;
+            --bg-secondary: #11182B;
+            --bg-glass: rgba(17, 24, 43, 0.65);
+            --accent-blue: #00E5FF;
+            --accent-purple: #9D4EDD;
+            --gradient-neon: linear-gradient(135deg, #00E5FF 0%, #9D4EDD 100%);
+            --gradient-card: linear-gradient(145deg, rgba(17, 24, 43, 0.9) 0%, rgba(8, 11, 22, 0.95) 100%);
+            --text-white: #FFFFFF;
+            --text-grey: #B0B8D1;
+            --text-muted: #707B9E;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 229, 255, 0.45);
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1220px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 105px 0;
+            position: relative;
+        }
+
+        /* Section Headings */
+        .section-header {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 64px;
+        }
+
+        .section-pill {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            background: rgba(0, 229, 255, 0.08);
+            border: 1px solid rgba(0, 229, 255, 0.25);
+            padding: 6px 16px;
+            border-radius: 30px;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+
+        .gradient-text {
+            background: var(--gradient-neon);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            color: var(--text-grey);
+            font-size: 1.02rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 28px;
+            border-radius: 10px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-neon {
+            background: var(--gradient-neon);
+            color: #05070E;
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.35);
+        }
+
+        .btn-neon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(157, 78, 221, 0.55);
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-white);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-glass:hover {
+            border-color: var(--accent-blue);
+            background: rgba(0, 229, 255, 0.08);
+            transform: translateY(-3px);
+        }
+
+        /* -------------------------------------------------------------------
+           2. NAVIGATION BAR
+           ------------------------------------------------------------------- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 11, 22, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand-logo {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-orb {
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+            transform: rotate(45deg);
+            background: var(--gradient-neon);
+            box-shadow: 0 0 14px var(--accent-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-grey);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-cta {
+            padding: 10px 20px;
+            font-size: 0.88rem;
+        }
+
+        /* Pure CSS Mobile Menu Toggle */
+        #menu-toggle {
+            display: none;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-white);
+        }
+
+        /* -------------------------------------------------------------------
+           3. HERO SECTION & FUTURISTIC CSS EFFECTS
+           ------------------------------------------------------------------- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 125px;
+            overflow: hidden;
+            /* Futuristic Neural Grid Pattern */
+            background-image:
+                linear-gradient(rgba(0, 229, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 229, 255, 0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Abstract Glowing Circles */
+        .glow-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(110px);
+            pointer-events: none;
+            z-index: 0;
+            animation: pulseGlow 7s infinite alternate ease-in-out;
+        }
+
+        .circle-blue {
+            width: 450px;
+            height: 450px;
+            background: rgba(0, 229, 255, 0.22);
+            top: 8%;
+            left: -120px;
+        }
+
+        .circle-purple {
+            width: 420px;
+            height: 420px;
+            background: rgba(157, 78, 221, 0.25);
+            bottom: 5%;
+            right: -100px;
+            animation-delay: 2s;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); opacity: 0.75; }
+            100% { transform: scale(1.18); opacity: 1; }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-secondary);
+            border: 1px solid rgba(157, 78, 221, 0.4);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--accent-blue);
+            margin-bottom: 22px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            box-shadow: 0 0 10px var(--accent-blue);
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 3.7rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 22px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.12rem;
+            color: var(--text-grey);
+            max-width: 560px;
+            margin-bottom: 36px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        /* Hero Visual Container */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .ai-core-frame {
+            position: relative;
+            border-radius: 24px;
+            padding: 4px;
+            background: var(--gradient-neon);
+            box-shadow: 0 20px 60px rgba(0, 229, 255, 0.25);
+            animation: hoverFloat 5s infinite ease-in-out alternate;
+        }
+
+        @keyframes hoverFloat {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-14px); }
+        }
+
+        .ai-core-inner {
+            background: var(--bg-secondary);
+            border-radius: 21px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ai-core-inner img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+        }
+
+        .hud-badge {
+            position: absolute;
+            bottom: 18px;
+            left: 18px;
+            right: 18px;
+            background: rgba(8, 11, 22, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 229, 255, 0.35);
+            padding: 12px 16px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+        }
+
+        .hud-badge span {
+            color: var(--accent-blue);
+        }
+
+        /* -------------------------------------------------------------------
+           4. ABOUT US SECTION
+           ------------------------------------------------------------------- */
+        .about {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img-wrapper {
+            position: relative;
+            border-radius: 22px;
+            padding: 12px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-img-wrapper img {
+            border-radius: 14px;
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+        }
+
+        .about-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.9rem;
+            margin-bottom: 16px;
+        }
+
+        .about-content > p {
+            color: var(--text-grey);
+            margin-bottom: 26px;
+        }
+
+        .mvg-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .mvg-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-left: 4px solid var(--accent-blue);
+            padding: 18px 20px;
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .mvg-card:nth-child(2) {
+            border-left-color: var(--accent-purple);
+        }
+
+        .mvg-card:hover {
+            transform: translateX(6px);
+            border-color: var(--border-glow);
+        }
+
+        .mvg-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: var(--text-white);
+            margin-bottom: 4px;
+        }
+
+        .mvg-card p {
+            font-size: 0.9rem;
+            color: var(--text-grey);
+        }
+
+        /* -------------------------------------------------------------------
+           5. AI PRODUCTS SECTION (4 Glassmorphism Cards)
+           ------------------------------------------------------------------- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 30px 24px;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-neon);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--border-glow);
+            box-shadow: 0 18px 40px rgba(0, 229, 255, 0.14);
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(157, 78, 221, 0.2));
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 22px;
+        }
+
+        .product-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .product-card p {
+            font-size: 0.92rem;
+            color: var(--text-grey);
+            margin-bottom: 26px;
+            flex-grow: 1;
+        }
+
+        .product-btn {
+            width: 100%;
+            padding: 11px 18px;
+            font-size: 0.88rem;
+        }
+
+        /* -------------------------------------------------------------------
+           6. APPLICATIONS OF AI (6 Industry Cards)
+           ------------------------------------------------------------------- */
+        .applications {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+
+        .app-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            padding: 28px;
+            transition: var(--transition);
+        }
+
+        .app-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 12px 30px rgba(157, 78, 221, 0.18);
+        }
+
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .app-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: rgba(157, 78, 221, 0.15);
+            border: 1px solid rgba(157, 78, 221, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .app-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+        }
+
+        .app-card p {
+            font-size: 0.92rem;
+            color: var(--text-grey);
+        }
+
+        /* -------------------------------------------------------------------
+           7. TECHNOLOGY STACK SECTION (CSS Indicators)
+           ------------------------------------------------------------------- */
+        .tech-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tech-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 22px 26px;
+            transition: var(--transition);
+        }
+
+        .tech-item:hover {
+            border-color: var(--border-glow);
+        }
+
+        .tech-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-name {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tech-badge {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--accent-blue);
+            background: rgba(0, 229, 255, 0.1);
+            padding: 3px 10px;
+            border-radius: 6px;
+        }
+
+        .tech-bar-track {
+            width: 100%;
+            height: 10px;
+            background: var(--bg-primary);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tech-bar-fill {
+            height: 100%;
+            background: var(--gradient-neon);
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0, 229, 255, 0.5);
+        }
+
+        /* -------------------------------------------------------------------
+           8. STATISTICS SECTION (Demonstration Figures)
+           ------------------------------------------------------------------- */
+        .stats-section {
+            padding: 75px 0;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.08) 0%, rgba(157, 78, 221, 0.1) 100%);
+            border-top: 1px solid var(--border-glow);
+            border-bottom: 1px solid var(--border-glow);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+
+        .stat-box {
+            background: rgba(8, 11, 22, 0.75);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            padding: 30px 20px;
+            transition: var(--transition);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: var(--gradient-neon);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-white);
+        }
+
+        .stats-disclaimer {
+            text-align: center;
+            margin-top: 24px;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* -------------------------------------------------------------------
+           9. OUR TEAM SECTION (3 Profile Cards)
+           ------------------------------------------------------------------- */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .team-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-glow);
+            box-shadow: 0 18px 38px rgba(0, 229, 255, 0.14);
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            background: #18223C;
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 26px 24px;
+        }
+
+        .team-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .team-role {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            margin-bottom: 14px;
+        }
+
+        .team-info p {
+            font-size: 0.9rem;
+            color: var(--text-grey);
+        }
+
+        /* -------------------------------------------------------------------
+           10. CONTACT SECTION
+           ------------------------------------------------------------------- */
+        .contact {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .contact-details h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            margin-bottom: 14px;
+        }
+
+        .contact-details > p {
+            color: var(--text-grey);
+            margin-bottom: 28px;
+        }
+
+        .info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-info-box {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            padding: 18px 20px;
+            border-radius: 14px;
+        }
+
+        .contact-icon-box {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: rgba(0, 229, 255, 0.12);
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .contact-info-box span {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .contact-info-box strong {
+            font-size: 0.98rem;
+            color: var(--text-white);
+        }
+
+        .contact-form {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            padding: 36px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-grey);
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15);
+        }
+
+        textarea.form-input {
+            min-height: 125px;
+            resize: vertical;
+        }
+
+        /* -------------------------------------------------------------------
+           11. FOOTER
+           ------------------------------------------------------------------- */
+        .footer {
+            background: #05070E;
+            border-top: 1px solid var(--border-subtle);
+            padding: 60px 0 30px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            max-width: 320px;
+            margin-top: 12px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links-group h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            margin-bottom: 14px;
+            color: var(--text-white);
+        }
+
+        .footer-links-group ul {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links-group a {
+            font-size: 0.9rem;
+            color: var(--text-grey);
+            transition: var(--transition);
+        }
+
+        .footer-links-group a:hover {
+            color: var(--accent-blue);
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* -------------------------------------------------------------------
+           12. RESPONSIVE DESIGN (Laptop, Tablet, Mobile)
+           ------------------------------------------------------------------- */
+        @media (max-width: 1100px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 920px) {
+            .hero-grid,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                margin: 0 auto 32px;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .apps-grid,
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Mobile Drawer Navigation */
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(8, 11, 22, 0.98);
+                border-bottom: 1px solid var(--border-subtle);
+                flex-direction: column;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.35s ease;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 12px 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.04);
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                max-height: 480px;
+                padding-bottom: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 2.4rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .products-grid,
+            .apps-grid,
+            .team-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-core-inner img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =====================================================================
+         1. NAVIGATION BAR
+         ===================================================================== -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="brand-logo">
+                <span class="logo-orb"></span>
+                NEXORA <span class="gradient-text">AI</span>
+            </a>
+
+            <!-- Pure CSS Mobile Toggle -->
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon" aria-label="Toggle Menu">&#9776;</label>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">AI Products</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#team">Our Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#products" class="btn btn-neon nav-cta">Get Started</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- =====================================================================
+         2. HERO SECTION
+         ===================================================================== -->
+    <section id="home" class="hero">
+        <!-- Decorative Glowing Orbs -->
+        <div class="glow-circle circle-blue"></div>
+        <div class="glow-circle circle-purple"></div>
+
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <span class="pulse-dot"></span>
+                    NEXT-GEN NEURAL ARCHITECTURE v4.0
+                </div>
+                <h1 class="hero-title">
+                    INTELLIGENCE <span class="gradient-text">BEYOND IMAGINATION</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Discover the next generation of artificial intelligence. We build intelligent solutions that transform ideas into possibilities.
+                </p>
+                <div class="hero-actions">
+                    <a href="#products" class="btn btn-neon">Explore AI Suite &rarr;</a>
+                    <a href="#about" class="btn btn-glass">Discover Our Vision</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="ai-core-frame">
+                    <div class="ai-core-inner">
+                        <img src="https://placehold.co/650x550/11182B/00E5FF?text=NEXORA+NEURAL+CORE%0AArtificial+Intelligence" alt="NEXORA AI Futuristic Core">
+                        <div class="hud-badge">
+                            <span>SYS.STATUS: ONLINE</span>
+                            <span>LATENCY: 4.2ms</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         3. ABOUT US SECTION
+         ===================================================================== -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill">01. About Nexora AI</span>
+                <h2 class="section-title">Pioneering the <span class="gradient-text">Cognitive Era</span></h2>
+                <p class="section-subtitle">
+                    NEXORA AI is an innovative artificial intelligence research and product startup dedicated to making enterprise-grade machine intelligence accessible to everyone.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-img-wrapper">
+                    <img src="https://placehold.co/600x550/080B16/9D4EDD?text=AI+Research+%26+Neural+Systems" alt="NEXORA AI Research Lab">
+                </div>
+
+                <div class="about-content">
+                    <h3>Empowering Humans Through Ethical &amp; Adaptive AI</h3>
+                    <p>
+                        Founded by a passionate collective of AI researchers, software architects, and data scientists, NEXORA AI bridges the gap between complex deep learning models and intuitive everyday tools.
+                    </p>
+
+                    <div class="mvg-cards">
+                        <div class="mvg-card">
+                            <h4>Our Mission</h4>
+                            <p>To engineer reliable, transparent, and ultra-fast AI systems that amplify human creativity and automate complex problem-solving.</p>
+                        </div>
+
+                        <div class="mvg-card">
+                            <h4>Our Vision</h4>
+                            <p>A connected world where intelligent technology seamlessly supports education, healthcare, sustainability, and global innovation.</p>
+                        </div>
+
+                        <div class="mvg-card">
+                            <h4>Company Goals</h4>
+                            <p>Deliver scalable conversational models, real-time computer vision APIs, and predictive analytics platforms across 15+ industries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         4. AI PRODUCTS SECTION
+         ===================================================================== -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill">02. Flagship Suite</span>
+                <h2 class="section-title">Intelligent <span class="gradient-text">AI Products</span></h2>
+                <p class="section-subtitle">
+                    Explore our modular ecosystem of next-generation artificial intelligence platforms engineered for speed and precision.
+                </p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <article class="product-card">
+                    <div class="product-icon">AI</div>
+                    <h3>NEXORA CHAT</h3>
+                    <p>An AI-powered conversational assistant capable of natural reasoning, multilingual support, and instant knowledge synthesis.</p>
+                    <a href="#contact" class="btn btn-glass product-btn">Explore &rarr;</a>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="product-card">
+                    <div class="product-icon">&#9673;</div>
+                    <h3>NEXORA VISION</h3>
+                    <p>Intelligent image recognition concept offering real-time object detection, medical scan diagnostics, and visual inspection.</p>
+                    <a href="#contact" class="btn btn-glass product-btn">Explore &rarr;</a>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="product-card">
+                    <div class="product-icon">&lt;/&gt;</div>
+                    <h3>NEXORA CODE</h3>
+                    <p>AI-assisted programming concept that helps developers write, debug, optimize, and document clean code in seconds.</p>
+                    <a href="#contact" class="btn btn-glass product-btn">Explore &rarr;</a>
+                </article>
+
+                <!-- Product 4 -->
+                <article class="product-card">
+                    <div class="product-icon">&#9783;</div>
+                    <h3>NEXORA ANALYTICS</h3>
+                    <p>Intelligent data analysis concept transforming raw enterprise datasets into predictive forecasts and actionable visual insights.</p>
+                    <a href="#contact" class="btn btn-glass product-btn">Explore &rarr;</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         5. APPLICATIONS OF AI SECTION
+         ===================================================================== -->
+    <section id="applications" class="applications">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill">03. Real-World Impact</span>
+                <h2 class="section-title">Applications of <span class="gradient-text">AI</span></h2>
+                <p class="section-subtitle">
+                    How NEXORA AI models transform critical sectors across the modern global economy.
+                </p>
+            </div>
+
+            <div class="apps-grid">
+                <!-- Education -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-icon">&#127891;</div>
+                        <h3>Education</h3>
+                    </div>
+                    <p>Personalized AI tutors, automated grading assistants, and adaptive learning paths tailored to every student's pace.</p>
+                </div>
+
+                <!-- Healthcare -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-icon">&#9829;</div>
+                        <h3>Healthcare</h3>
+                    </div>
+                    <p>Early disease detection through computer vision imaging, predictive patient diagnostics, and accelerated drug discovery.</p>
+                </div>
+
+                <!-- Business -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-icon">&#128200;</div>
+                        <h3>Business</h3>
+                    </div>
+                    <p>24/7 intelligent customer support agents, automated workflow optimization, and real-time market trend forecasting.</p>
+                </div>
+
+                <!-- Agriculture -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-icon">&#127793;</div>
+                        <h3>Agriculture</h3>
+                    </div>
+                    <p>Drone-based crop health monitoring, precision irrigation scheduling, and AI-driven soil nutrient analysis.</p>
+                </div>
+
+                <!-- Transportation -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-icon">&#128640;</div>
+                        <h3>Transportation</h3>
+                    </div>
+                    <p>Smart city traffic flow optimization, autonomous navigation perception systems, and predictive fleet maintenance.</p>
+                </div>
+
+                <!-- Entertainment -->
+                <div class="app-card">
+                    <div class="app-header">
+                        <div class="app-icon">&#127918;</div>
+                        <h3>Entertainment</h3>
+                    </div>
+                    <p>Generative media creation, hyper-personalized content recommendations, and intelligent interactive game environments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         6. TECHNOLOGY STACK SECTION
+         ===================================================================== -->
+    <section id="technology" class="technology">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill">04. Core Architecture</span>
+                <h2 class="section-title">Powered by Advanced <span class="gradient-text">Technologies</span></h2>
+                <p class="section-subtitle">
+                    Our proprietary neural stack combines five foundational pillars of modern artificial intelligence.
+                </p>
+            </div>
+
+            <div class="tech-list">
+                <div class="tech-item">
+                    <div class="tech-top">
+                        <span class="tech-name">Machine Learning (ML)</span>
+                        <span class="tech-badge">Adaptive Algorithms &bull; 98% Efficiency</span>
+                    </div>
+                    <div class="tech-bar-track">
+                        <div class="tech-bar-fill" style="width: 96%;"></div>
+                    </div>
+                </div>
+
+                <div class="tech-item">
+                    <div class="tech-top">
+                        <span class="tech-name">Natural Language Processing (NLP)</span>
+                        <span class="tech-badge">Transformer LLMs &bull; 100+ Languages</span>
+                    </div>
+                    <div class="tech-bar-track">
+                        <div class="tech-bar-fill" style="width: 94%;"></div>
+                    </div>
+                </div>
+
+                <div class="tech-item">
+                    <div class="tech-top">
+                        <span class="tech-name">Computer Vision (CV)</span>
+                        <span class="tech-badge">Real-Time Object &amp; Pattern Recognition</span>
+                    </div>
+                    <div class="tech-bar-track">
+                        <div class="tech-bar-fill" style="width: 91%;"></div>
+                    </div>
+                </div>
+
+                <div class="tech-item">
+                    <div class="tech-top">
+                        <span class="tech-name">Deep Learning</span>
+                        <span class="tech-badge">Multi-Layer Neural Networks</span>
+                    </div>
+                    <div class="tech-bar-track">
+                        <div class="tech-bar-fill" style="width: 95%;"></div>
+                    </div>
+                </div>
+
+                <div class="tech-item">
+                    <div class="tech-top">
+                        <span class="tech-name">Data Analytics</span>
+                        <span class="tech-badge">Predictive Big Data Pipelines</span>
+                    </div>
+                    <div class="tech-bar-track">
+                        <div class="tech-bar-fill" style="width: 92%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         7. STATISTICS SECTION (Demonstration Figures)
+         ===================================================================== -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">AI Solutions</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Technology Experts</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Industry Applications</div>
+                </div>
+            </div>
+            <p class="stats-disclaimer">* Note: Figures shown above are fictional demonstration metrics created for showcase purposes.</p>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         8. OUR TEAM SECTION
+         ===================================================================== -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill">05. Leadership &amp; Minds</span>
+                <h2 class="section-title">Meet <span class="gradient-text">Our Team</span></h2>
+                <p class="section-subtitle">
+                    The fictional innovators and engineers architecting the future at NEXORA AI.
+                </p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Member 1 -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="https://placehold.co/500x450/11182B/00E5FF?text=Dr.+Elena+Vance" alt="Dr. Elena Vance">
+                    </div>
+                    <div class="team-info">
+                        <h3>Dr. Elena Vance</h3>
+                        <span class="team-role">Founder &amp; Chief AI Scientist</span>
+                        <p>Specializes in deep neural architectures and ethical artificial intelligence systems with 12+ years of research experience.</p>
+                    </div>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="https://placehold.co/500x450/11182B/9D4EDD?text=Marcus+Chen" alt="Marcus Chen">
+                    </div>
+                    <div class="team-info">
+                        <h3>Marcus Chen</h3>
+                        <span class="team-role">Head of Computer Vision</span>
+                        <p>Leads the NEXORA VISION division, developing high-speed visual recognition models for healthcare and robotics.</p>
+                    </div>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="team-card">
+                    <div class="team-photo">
+                        <img src="https://placehold.co/500x450/11182B/00E5FF?text=Ananya+Rao" alt="Ananya Rao">
+                    </div>
+                    <div class="team-info">
+                        <h3>Ananya Rao</h3>
+                        <span class="team-role">Lead NLP &amp; Platform Architect</span>
+                        <p>Architects scalable conversational AI pipelines and developer tools powering NEXORA CHAT and NEXORA CODE.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         9. CONTACT SECTION
+         ===================================================================== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill">06. Connect With Us</span>
+                <h2 class="section-title">Start Your <span class="gradient-text">AI Journey</span></h2>
+                <p class="section-subtitle">
+                    Have a question about our AI platforms or want to collaborate on a futuristic project? Send us a message.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-details">
+                    <h3>Get in Touch with NEXORA AI</h3>
+                    <p>Our team is ready to help you integrate intelligent automation and predictive analytics into your workflow.</p>
+
+                    <div class="info-cards">
+                        <div class="contact-info-box">
+                            <div class="contact-icon-box">@</div>
+                            <div>
+                                <span>Official Email</span>
+                                <strong>contact@nexora-ai.example.com</strong>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-box">
+                            <div class="contact-icon-box">&#9906;</div>
+                            <div>
+                                <span>Headquarters Location</span>
+                                <strong>HITEC City Innovation Hub, Hyderabad, India</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HTML5 Contact Form -->
+                <form class="contact-form" action="#contact">
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="name" class="form-input" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email-addr">Email Address</label>
+                        <input type="email" id="email-addr" name="email" class="form-input" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-msg">Message</label>
+                        <textarea id="user-msg" name="message" class="form-input" placeholder="Tell us about your project or inquiry..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-neon" style="width: 100%;">Send Message &rarr;</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         10. FOOTER
+         ===================================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#home" class="brand-logo">
+                        <span class="logo-orb"></span>
+                        NEXORA <span class="gradient-text">AI</span>
+                    </a>
+                    <p>Intelligence Beyond Imagination. Building futuristic artificial intelligence tools for tomorrow's innovators.</p>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">AI Products</a></li>
+                        <li><a href="#applications">Applications</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#technology">Technology</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>Social Media</h4>
+                    <ul>
+                        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li><a href="https://x.com" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 NEXORA AI Technologies. All Rights Reserved. (Fictional Concept Project)</p>
+                <a href="#home" style="color: var(--accent-blue); font-weight: 600;">Back to Top &uarr;</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
